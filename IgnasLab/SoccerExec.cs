@@ -8,8 +8,8 @@ namespace IgnasLab
 {
     public static class SoccerExec
     {
-        const string playersPath = "./App_Data/players.txt";
-        const string teamsPath = "./App_Data/teams.txt";
+        const string playersPath = "./App_Data/players1.txt";
+        const string teamsPath = "./App_Data/teams1.txt";
 
         public static void Run(Panel resultPanel, string desiredPosition)
         {
@@ -31,8 +31,9 @@ namespace IgnasLab
             Table defenderTable = XListToTable(defenders);
             Table midfieldTable = XListToTable(midfields);
             Table attackerTable = XListToTable(attackers);
+            Table bestTeamTable = XListToTable(bestTeamPlayers);
 
-
+            InOut.RenderResults(resultPanel, defenderTable, midfieldTable, attackerTable, bestTeamTable);
         }
 
 

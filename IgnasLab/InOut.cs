@@ -47,7 +47,7 @@ namespace IgnasLab
                     int totalGames = int.Parse(vars[1]);
                     int wonGames = int.Parse(vars[2]);
                     int drawGames = int.Parse(vars[3]);
-                    Team t = new Team();
+                    Team t = new Team(teamName, totalGames, wonGames, drawGames);
                     teams.Add(t);
                 }
             }
