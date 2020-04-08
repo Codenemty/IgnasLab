@@ -15,11 +15,20 @@ namespace IgnasLab
         public int GoalCount { get; set; }
         public Player()
         {
-            Team = "black people";
+
         }
         internal int CompareTo(Player other)
         {
-            throw new NotImplementedException();
+            if (other == null) return 1;
+            if (GoalCount == other.GoalCount)
+            {
+                return GameCount.CompareTo(other.GameCount);
+            }
+            return -GoalCount.CompareTo(other.GoalCount);
         }
+        public static bool operator >(Player a, Player b) => a.CompareTo(b) == 1;
+        public static bool operator <(Player a, Player b) => a.CompareTo(b) == -1;
+        public static bool operator >=(Player a, Player b) => a.CompareTo(b) >= 0;
+        public static bool operator <=(Player a, Player b) => a.CompareTo(b) <= 0;
     }
 }

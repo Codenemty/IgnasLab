@@ -207,7 +207,7 @@ namespace IgnasLab
             {
                 for (XNode b = a.Link; b != null; b = b.Link)
                 {
-                    if (a.Data.CompareTo(b.Data) == -1)
+                    if (a.Data < b.Data)
                     {
                         Swap(a, b);
                     }
