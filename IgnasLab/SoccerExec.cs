@@ -11,7 +11,7 @@ namespace IgnasLab
         const string playersPath = "./App_Data/players1.txt";
         const string teamsPath = "./App_Data/teams1.txt";
 
-        public static void Run(Panel resultPanel, string desiredPosition)
+        public static void Run(Panel resultPanel, string desiredTeam)
         {
             
             XList players = InOut.GetPlayers(playersPath);

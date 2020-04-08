@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace IgnasLab
@@ -56,6 +57,13 @@ namespace IgnasLab
 
         public static void RenderResults(Panel panel, Table defTable, Table midTable, Table atkTable, Table bestTeamTable)
         {
+            defTable.Caption = "Best defenders";
+            midTable.Caption = "Best midfields";
+            atkTable.Caption = "Best attackers";
+            bestTeamTable.Caption = "Best Team's players";
+            defTable = new Table();
+            panel.Controls.Add(defTable.Rows.Count > 1 ? defTable : ((Control)new Label() { Text = "zz" }));
+
             panel.Controls.Add(defTable);
             panel.Controls.Add(midTable);
             panel.Controls.Add(atkTable);
