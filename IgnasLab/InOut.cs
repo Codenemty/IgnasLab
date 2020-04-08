@@ -61,13 +61,12 @@ namespace IgnasLab
             midTable.Caption = "Best midfields";
             atkTable.Caption = "Best attackers";
             bestTeamTable.Caption = "Best Team's players";
-            defTable = new Table();
-            panel.Controls.Add(defTable.Rows.Count > 1 ? defTable : ((Control)new Label() { Text = "zz" }));
 
-            panel.Controls.Add(defTable);
-            panel.Controls.Add(midTable);
-            panel.Controls.Add(atkTable);
-            panel.Controls.Add(bestTeamTable);
+
+            panel.Controls.Add(defTable.Rows.Count > 1 ? defTable : ((Control)new Label() { Text = "No defenders found." }));
+            panel.Controls.Add(midTable.Rows.Count > 1 ? midTable : ((Control)new Label() { Text = "No midfields found." }));
+            panel.Controls.Add(atkTable.Rows.Count > 1 ? atkTable : ((Control)new Label() { Text = "No attackers found." }));
+            panel.Controls.Add(bestTeamTable.Rows.Count > 1 ? atkTable : ((Control)new Label() { Text = "There is no best team." }));
         }
 
 
