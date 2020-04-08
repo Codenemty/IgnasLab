@@ -15,7 +15,7 @@ namespace IgnasLab
         public int GoalCount { get; set; }
         public Player()
         {
-
+            Team = "black people";
         }
         internal int CompareTo(Player other)
         {
