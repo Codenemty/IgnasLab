@@ -54,7 +54,13 @@ namespace IgnasLab
                 return teams;
         }
 
-        
+        public static void RenderResults(Panel panel, Table defTable, Table midTable, Table atkTable, Table bestTeamTable)
+        {
+            panel.Controls.Add(defTable);
+            panel.Controls.Add(midTable);
+            panel.Controls.Add(atkTable);
+            panel.Controls.Add(bestTeamTable);
+        }
 
 
 

@@ -6,13 +6,14 @@ using System.Web.UI.WebControls;
 
 namespace IgnasLab
 {
-    public class SoccerExec
+    public static class SoccerExec
     {
         const string playersPath = "./App_Data/players.txt";
         const string teamsPath = "./App_Data/teams.txt";
 
-        public void Run()
+        public static void Run(Panel resultPanel, string desiredPosition)
         {
+            
             XList players = InOut.GetPlayers(playersPath);
             List<Team> teams = InOut.GetTeams(teamsPath);
 
@@ -24,18 +25,36 @@ namespace IgnasLab
             midfields.Sort();
             attackers.Sort();
 
+            Team bestTeam = FindBestTeam(teams);
+            XList bestTeamPlayers = FilterPlayersByTeam(players, bestTeam);
+
+            Table defenderTable = XListToTable(defenders);
+            Table midfieldTable = XListToTable(midfields);
+            Table attackerTable = XListToTable(attackers);
 
 
         }
 
 
-        public XList FilterPlayersByPosition(XList list, string position)
+        public static XList FilterPlayersByPosition(XList list, string position)
         {
+            if (position == "") return list;
             XList filtered = new XList();
 
             for (list.Begin(); list.Exist(); list.Next())
             {
                 if (list.Get().Position.ToLower() == position.ToLower()) filtered.Add(list.Get());
+            }
+            return filtered;
+        }
+        public static XList FilterPlayersByTeam(XList list, Team team)
+        {
+            XList filtered = new XList();
+
+            for (list.Begin(); list.Exist(); list.Next())
+            {
+                Player p = list.Get();
+                if (p.Team.ToLower() == team.TeamName.ToLower()) filtered.Add(p);
             }
             return filtered;
         }
@@ -67,10 +86,9 @@ namespace IgnasLab
             }
             return table;
         }
-
         public static Team FindBestTeam(List<Team> teams)
         {
-            Team best;
+            Team best = null;
             int bestPoints = 0;
             if (teams.Count == 0) return null;
 
@@ -82,13 +100,17 @@ namespace IgnasLab
             return best;
         }
 
+
+
+
+
         //Top D, Top M, Top F     3tables                 ------------DONE----------------
 
         //Find best team                                  ------------DONE----------------
 
-        //Print every best teams player 
+        //Print every best teams player                   ------------DONE----------------
 
-
+        // Keyboard input team to player list
 
     }
 }

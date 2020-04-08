@@ -13,5 +13,11 @@ namespace IgnasLab
         {
 
         }
+
+        protected void ExecButton_Click(object sender, EventArgs e)
+        {
+
+            SoccerExec.Run(ResultPanel, PositionInput.Value);
+        }
     }
 }
