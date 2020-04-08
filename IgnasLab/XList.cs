@@ -5,7 +5,7 @@ using System.Web;
 
 namespace IgnasLab
 {
-    public sealed class XList
+    public class XList
     {
         private XNode head;
         private XNode tail;
@@ -30,6 +30,7 @@ namespace IgnasLab
         }
         public void Add(Player data)
         {
+            if (Contains(data)) return;
             XNode node = new XNode(data);
             //Empty
             if (this.head == null)
