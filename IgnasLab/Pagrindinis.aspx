@@ -4,14 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="../Content/Site.css" rel="stylesheet" type="text/css" />
     <title>SoccerStats</title>
 </head>
 <body>
     <form id="InputForm" runat="server">
         <asp:Label ID="TitleName" runat="server" Text="SoccerStats.io "></asp:Label>
-        <br />
-        <input id="PositionInput" runat="server" type="text" />
-        <asp:Button ID="ExecButton" runat="server" Text="Button" OnClick="ExecButton_Click" />
+        <br /><br />
+        <asp:Label ID="InputLabel" runat="server" Text="Search for a team"></asp:Label>
+        <input id="PositionInput" runat="server" type="text" placeholder="CSKA, KamandaX"/>
+        <asp:Button ID="ExecButton" runat="server" Text="Search" OnClick="ExecButton_Click" />
+        <br /><br />
     </form>
         <asp:Panel ID="ResultPanel" runat="server">
         </asp:Panel>

@@ -1,1 +1,54 @@
-﻿
+﻿*{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+body{
+    background: #eee;
+
+}
+
+input[type="text"] {
+    font-size: 16px;
+    background: #000;
+    color: #fff;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+     font-size: 16px;
+    background: #000;
+    color: #fff;
+}
+
+input[type="submit"] {
+    background: #fff;
+    font-size:18px;
+    border: 2px double black;
+}
+
+table, tr, th, td{
+    background: #ddd;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+table{
+    width:20%;
+}
+caption{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+th{
+    background: #aaa;
+}
+
+.TableWrapper{
+    width: 20%;
+
+}
+
+#TitleName{
+    font-size:42px;
+
+}

@@ -66,7 +66,7 @@ namespace IgnasLab
             panel.Controls.Add(defTable.Rows.Count > 1 ? defTable : ((Control)new Label() { Text = "No defenders found." }));
             panel.Controls.Add(midTable.Rows.Count > 1 ? midTable : ((Control)new Label() { Text = "No midfields found." }));
             panel.Controls.Add(atkTable.Rows.Count > 1 ? atkTable : ((Control)new Label() { Text = "No attackers found." }));
-            panel.Controls.Add(bestTeamTable.Rows.Count > 1 ? atkTable : ((Control)new Label() { Text = "There is no best team." }));
+            panel.Controls.Add(bestTeamTable.Rows.Count > 1 ? bestTeamTable : ((Control)new Label() { Text = "There is no best team." }));
         }
 
 

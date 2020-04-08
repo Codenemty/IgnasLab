@@ -27,6 +27,7 @@ namespace IgnasLab
 
             Team bestTeam = FindBestTeam(teams);
             XList bestTeamPlayers = FilterPlayersByTeam(players, bestTeam);
+            bestTeamPlayers.Sort();
 
             Table defenderTable = XListToTable(defenders);
             Table midfieldTable = XListToTable(midfields);
@@ -96,7 +97,11 @@ namespace IgnasLab
             foreach (Team team in teams)
             {
                 int teamPoints = team.DrawGameCount + team.WonGameCount * 3; //3 per win, 1 per loss
-                if (teamPoints >= bestPoints) best = team;
+                if (teamPoints >= bestPoints)
+                {
+                    best = team;
+                    bestPoints = teamPoints;
+                }
             }
             return best;
         }
