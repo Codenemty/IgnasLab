@@ -11,9 +11,13 @@ namespace IgnasLab
         public int TotalGameCount { get; set; }
         public int WonGameCount { get; set; }
         public int DrawGameCount { get; set; }
-        public Team()
+        public Team() {}
+        public Team(string teamName, int totalGames, int wonGames, int drawGames)
         {
-
+            this.TeamName = teamName;
+            this.TotalGameCount = totalGames;
+            this.WonGameCount = wonGames;
+            this.DrawGameCount = drawGames;
         }
     }
 }
