@@ -26,15 +26,21 @@ namespace IgnasLab
             attackers.Sort();
 
             Team bestTeam = FindBestTeam(teams);
+            Team searchedTeam = FindTeam(teams, desiredTeam);
+
             XList bestTeamPlayers = FilterPlayersByTeam(players, bestTeam);
+            XList searchedTeamPlayers = FilterPlayersByTeam(players, searchedTeam);
+
             bestTeamPlayers.Sort();
+            searchedTeamPlayers.Sort();
 
             Table defenderTable = XListToTable(defenders);
             Table midfieldTable = XListToTable(midfields);
             Table attackerTable = XListToTable(attackers);
             Table bestTeamTable = XListToTable(bestTeamPlayers);
+            Table searchedTeamTable = XListToTable(searchedTeamPlayers);
 
-            InOut.RenderResults(resultPanel, defenderTable, midfieldTable, attackerTable, bestTeamTable);
+            InOut.RenderResults(resultPanel, defenderTable, midfieldTable, attackerTable, bestTeamTable, searchedTeamTable);
         }
 
 
@@ -51,6 +57,7 @@ namespace IgnasLab
         }
         public static XList FilterPlayersByTeam(XList list, Team team)
         {
+            if (team == null) return new XList();
             XList filtered = new XList();
 
             for (list.Begin(); list.Exist(); list.Next())
@@ -105,18 +112,16 @@ namespace IgnasLab
             }
             return best;
         }
+        public static Team FindTeam(List<Team> teams, string teamName)
+        {
+            foreach (Team team in teams)
+            {
+                if (team.TeamName.ToLower() == teamName.ToLower()) return team;
+            }
+            return null;
+        }
 
 
-
-
-
-        //Top D, Top M, Top F     3tables                 ------------DONE----------------
-
-        //Find best team                                  ------------DONE----------------
-
-        //Print every best teams player                   ------------DONE----------------
-
-        // Keyboard input team to player list
 
     }
 }
