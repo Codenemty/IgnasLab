@@ -76,13 +76,6 @@ namespace IgnasLab
             this.count = 0;
         }
         public bool Exist() => iterator != null;
-        public void Foreach(Action<Player> action)
-        {
-            for (Begin(); Exist(); Next())
-            {
-                action(Get());
-            }
-        }
         public Player Get()
         {
             return iterator.Data;
