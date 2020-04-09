@@ -71,6 +71,7 @@ namespace IgnasLab
         /// <returns>filtered list</returns>
         public static XList FilterPlayersByTeam(XList list, Team team)
         {
+            if (team == null) return new XList();
             XList filtered = new XList();
 
             for (list.Begin(); list.Exist(); list.Next())

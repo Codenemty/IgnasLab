@@ -103,7 +103,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\players2.txt" />
     <Content Include="App_Data\players1.txt" />
+    <Content Include="App_Data\teams2.txt" />
     <Content Include="App_Data\teams1.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
