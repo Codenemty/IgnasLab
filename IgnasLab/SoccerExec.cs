@@ -10,7 +10,11 @@ namespace IgnasLab
     {
         const string playersPath = "./App_Data/players1.txt";
         const string teamsPath = "./App_Data/teams1.txt";
-
+        /// <summary>
+        /// Runs the tntire algorithm
+        /// </summary>
+        /// <param name="resultPanel">panel, which will be filled up with</param>
+        /// <param name="desiredTeam">searched team's name</param>
         public static void Run(Panel resultPanel, string desiredTeam)
         {
             
@@ -42,8 +46,12 @@ namespace IgnasLab
 
             InOut.RenderResults(resultPanel, defenderTable, midfieldTable, attackerTable, bestTeamTable, searchedTeamTable);
         }
-
-
+        /// <summary>
+        /// filters players by position
+        /// </summary>
+        /// <param name="list">all players</param>
+        /// <param name="position">queried player position</param>
+        /// <returns>filtered list</returns>
         public static XList FilterPlayersByPosition(XList list, string position)
         {
             if (position == "") return list;
@@ -55,9 +63,14 @@ namespace IgnasLab
             }
             return filtered;
         }
+        /// <summary>
+        /// filters players by team
+        /// </summary>
+        /// <param name="list">all players</param>
+        /// <param name="team">queried team</param>
+        /// <returns>filtered list</returns>
         public static XList FilterPlayersByTeam(XList list, Team team)
         {
-            if (team == null) return new XList();
             XList filtered = new XList();
 
             for (list.Begin(); list.Exist(); list.Next())
@@ -67,8 +80,14 @@ namespace IgnasLab
             }
             return filtered;
         }
+        /// <summary>
+        /// Converts XList to Table
+        /// </summary>
+        /// <param name="list">list</param>
+        /// <returns>list converted as table</returns>
         public static Table XListToTable(XList list) // Name surname team goals games
         {
+            if (list == null) return null;
             Table table = new Table();
 
             TableHeaderRow header = new TableHeaderRow();
@@ -95,6 +114,11 @@ namespace IgnasLab
             }
             return table;
         }
+        /// <summary>
+        /// Finds best team
+        /// </summary>
+        /// <param name="teams"> team list </param>
+        /// <returns> best team </returns>
         public static Team FindBestTeam(List<Team> teams)
         {
             Team best = null;
@@ -112,6 +136,12 @@ namespace IgnasLab
             }
             return best;
         }
+        /// <summary>
+        /// Finds a team by string
+        /// </summary>
+        /// <param name="teams"> team list </param>
+        /// <param name="teamName"> team lookup </param>
+        /// <returns> searched team </returns>
         public static Team FindTeam(List<Team> teams, string teamName)
         {
             foreach (Team team in teams)

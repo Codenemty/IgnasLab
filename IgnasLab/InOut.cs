@@ -10,7 +10,11 @@ namespace IgnasLab
 {
     public static class InOut
     {
-
+        /// <summary>
+        /// Gets players from file
+        /// </summary>
+        /// <param name="path"> relative file location</param>
+        /// <returns>players</returns>
         public static XList GetPlayers(string path)
         {
             XList players = new XList();
@@ -34,7 +38,11 @@ namespace IgnasLab
                 return players;
             }
         }
-
+        /// <summary>
+        /// Gets teams from file
+        /// </summary>
+        /// <param name="path">relative file location</param>
+        /// <returns>teams</returns>
         public static List<Team> GetTeams(string path)
         {
             List<Team> teams = new List<Team>();
@@ -54,7 +62,15 @@ namespace IgnasLab
             }
                 return teams;
         }
-
+        /// <summary>
+        /// Puts all the results on the screen
+        /// </summary>
+        /// <param name="panel">Panel which will be filled with tables</param>
+        /// <param name="defTable"> table of defenders </param>
+        /// <param name="midTable">table of midfields</param>
+        /// <param name="atkTable">table of attackers</param>
+        /// <param name="bestTeamTable">table of the best team</param>
+        /// <param name="searchedTeamTable"> table of the searched team</param>
         public static void RenderResults(Panel panel, Table defTable, Table midTable, Table atkTable, Table bestTeamTable, Table searchedTeamTable)
         {
             defTable.Caption = "Best defenders";
@@ -70,11 +86,6 @@ namespace IgnasLab
             panel.Controls.Add(bestTeamTable.Rows.Count > 1 ? bestTeamTable : ((Control)new Label() { Text = "There is no best team." }));
             panel.Controls.Add(searchedTeamTable.Rows.Count > 1 ? searchedTeamTable : ((Control)new Label() { Text = "No such team found." }));
         }
-
-
-
-
-
 
     }
 }

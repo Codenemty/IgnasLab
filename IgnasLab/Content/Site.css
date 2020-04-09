@@ -1,10 +1,8 @@
 ﻿*{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
 body{
     background: #eee;
-
 }
 
 input[type="text"] {
@@ -14,9 +12,9 @@ input[type="text"] {
 }
 
 input[type="text"]::-webkit-input-placeholder {
-     font-size: 16px;
+    font-size: 16px;
     background: #000;
-    color: #fff;
+    color: #ccc;
 }
 
 input[type="submit"] {
@@ -34,21 +32,15 @@ table, tr, th, td{
 table{
     width:20%;
 }
+
+th {
+    background: #aaa;
+}
 caption{
     font-size: 28px;
     font-weight: bold;
 }
 
-th{
-    background: #aaa;
-}
-
-.TableWrapper{
-    width: 20%;
-
-}
-
 #TitleName{
     font-size:42px;
-
 }

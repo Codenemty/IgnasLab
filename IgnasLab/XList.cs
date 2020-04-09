@@ -50,29 +50,6 @@ namespace IgnasLab
         {
             Add(node.Data);
         }
-        public bool All(Func<Player, bool> query)
-        {
-            bool flag = true;
-            Foreach((x) => { if (!query(x)) flag = false; });
-            return flag;
-        }
-        public bool Any(Func<Player, bool> query)
-        {
-            bool flag = false;
-            Foreach((x) => { if (query(x)) flag = true; });
-            return flag;
-        }
-        public decimal Average(Func<Player, decimal> query)
-        {
-            try
-            {
-                return Sum(query) / Count();
-            }
-            catch (DivideByZeroException)
-            {
-                return 0;
-            }
-        }
         public void Begin()
         {
             this.iterator = this.head;
@@ -106,47 +83,9 @@ namespace IgnasLab
                 action(Get());
             }
         }
-        public void Insert(Player player, int index)
-        {
-            XNode prior = null;
-            var node = new XNode(player);
-            if (index == 0)//If insert as first
-            {
-                node.Link = head;
-                head = node;
-                this.count++;
-                return;
-            }
-            if (index > count)//If insert as last
-            {
-                Add(node);
-            }
-            int i = 0;
-            for (Begin(); Exist(); Next())
-            {
-                if (i < index - 1)
-                {
-                    prior = iterator;
-                }
-                i++;
-            }
-
-            node.Link = prior.Link;
-            prior.Link = node;
-            this.count++;
-
-        }
         public Player Get()
         {
             return iterator.Data;
-        }
-        public Player Find(Func<Player, bool> query)
-        {
-            for (Begin(); Exist(); Next())
-            {
-                if (query(Get())) return Get();
-            }
-            return default(Player);
         }
         private XNode FindNode(Player player)
         {
@@ -156,7 +95,7 @@ namespace IgnasLab
             }
             return null;
         }
-        private XNode FindNodeBefore(XNode current)
+        private XNode FindPriorNode(XNode current)
         {
             if (current == this.head) return null;
 
@@ -174,7 +113,7 @@ namespace IgnasLab
         public void Remove(Player player)
         {
             if (!Contains(player)) return;
-            if (count == 1) // If removing only element, dispose.
+            if (count == 1)
             {
                 Dispose();
                 count--;
@@ -182,11 +121,11 @@ namespace IgnasLab
                 return;
             }
             var node = FindNode(player);
-            var nodePrior = FindNodeBefore(node);
+            var nodePrior = FindPriorNode(node);
             var nodeFollowing = node?.Link;
 
             node.Link = null;
-            if (nodePrior != null) // If removing first element, following becomes head.
+            if (nodePrior != null)
             {
                 nodePrior.Link = nodeFollowing;
             }
@@ -195,7 +134,7 @@ namespace IgnasLab
                 head = nodeFollowing;
             }
 
-            if (nodeFollowing == null)// If removing last element, prior becomes tail.
+            if (nodeFollowing == null)
             {
                 tail = nodePrior;
             }
@@ -214,15 +153,6 @@ namespace IgnasLab
                     }
                 }
             }
-        }
-        public decimal Sum(Func<Player, decimal> query)
-        {
-            decimal total = 0M;
-            Foreach(x =>
-            {
-                total += query(x);
-            });
-            return total;
         }
         private void Swap(XNode a, XNode b)
         {

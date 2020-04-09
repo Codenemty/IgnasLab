@@ -13,10 +13,7 @@ namespace IgnasLab
         public string Position { get; set; } //F M A => Forward Midfield Attacker
         public int GameCount { get; set; }
         public int GoalCount { get; set; }
-        public Player()
-        {
-
-        }
+        
         public Player(string team, string name, string surname, int bYear,float height,string position, int gamesCount,int goalsCount)//Team Name Surname BYear Height Position GamesCount GoalsCount
         {
             this.Team = team;
