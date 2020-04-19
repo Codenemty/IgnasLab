@@ -5,14 +5,14 @@ using System.Web;
 
 namespace IgnasLab
 {
-    public class XNode
+    public sealed class XNode<T>
     {
-        public Player Data { get; set; }
-        public XNode Link { get; set; }
+        public T Data { get; set; }
+        public XNode<T> Link { get; set; }
         public XNode() { }
-        public XNode(Player player)
+        public XNode(T data)
         {
-            this.Data = player;
+            this.Data = data;
         }
     }
 }

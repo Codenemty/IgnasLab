@@ -2,7 +2,7 @@
 
 namespace IgnasLab
 {
-    public class Player
+    public class Player : IComparable<Player>, IEquatable<Player>
     {
 
         public string Team { get; set; }
@@ -25,7 +25,8 @@ namespace IgnasLab
             this.GameCount = gamesCount;
             this.GoalCount = goalsCount;
         }
-        internal int CompareTo(Player other)
+
+        public int CompareTo(Player other)
         {
             if (other == null) return 1;
             if (GoalCount == other.GoalCount)
@@ -34,9 +35,12 @@ namespace IgnasLab
             }
             return GoalCount.CompareTo(other.GoalCount);
         }
-        public static bool operator >(Player a, Player b) => a.CompareTo(b) == 1;
-        public static bool operator <(Player a, Player b) => a.CompareTo(b) == -1;
-        public static bool operator >=(Player a, Player b) => a.CompareTo(b) >= 0;
-        public static bool operator <=(Player a, Player b) => a.CompareTo(b) <= 0;
+
+        public bool Equals(Player other)
+        {
+            return this.Team == other.Team &&
+                   this.Name == other.Name &&
+                   this.Surname == other.Surname;
+        }
     }
 }

@@ -1,10 +1,10 @@
-﻿Barca Jonas Jonaitis 1999 1,85 Attacker 10 10
-Barca Charlie White 1985 1,44 Defender 13 6
-Barca Varenis Pavarenis 2000 1,80 Defender 7 7
-CSKA Igor Sishkin 1995 1,69 Attacker 10 12
-CSKA Sasha Fedeev 1970 1,77 Attacker 8 10
-CSKA Ruski Pivo 1995 1,87 Defender 0 0
-CSKA Maksim Turev 1995 1,87 Defender 3 0
-KamandaX Fairy Bonke 1916 2,00 Attacker 8 10
-KamandaX Matas Petrenas 2001 1,69 Defender 5 5
-KamandaX Mats Petrens 2011 2,69 Defender 6 6
+﻿Barca;Jonas;Jonaitis;1999;1,85;Attacker;10;10
+Barca;Charlie;White;1985;1,44;Defender;13;6
+Barca;Varenis;Pavarenis;2000;1,80;Defender;7;7
+CSKA;Igor;Sishkin;1995;1,69;Attacker;10;12
+CSKA;Sasha;Fedeev;1970;1,77;Attacker;8;10
+CSKA;Ruski;Pivo;1995;1,87;Defender;0;0
+CSKA;Maksim;Turev;1995;1,87;Defender;3;0
+KamandaX;Fairy;Bonke;1916;2,00;Attacker;8;10
+KamandaX;Matas;Petrenas;2001;1,69;Defender;5;5
+KamandaX;Mats;Petrens;2011;2,69;Defender;6;6

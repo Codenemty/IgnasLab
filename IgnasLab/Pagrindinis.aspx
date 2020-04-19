@@ -11,10 +11,15 @@
     <form id="InputForm" runat="server">
         <asp:Label ID="TitleName" runat="server" Text="SoccerStats.io "></asp:Label>
         <br /><br />
+        <asp:Label ID="PlayerUploadLabel" runat="server" Text="Upload your player data (optional): "></asp:Label>
+        <asp:FileUpload ID="PlayerDataUpload" runat="server" /> <br />
+        <asp:Label ID="TeamUploadLabel" runat="server" Text="Upload your team data (optional): "></asp:Label>
+        <asp:FileUpload ID="TeamDataUpload" runat="server" /> <br />
         <asp:Label ID="InputLabel" runat="server" Text="Search for a team"></asp:Label>
         <input id="PositionInput" runat="server" type="text" placeholder="CSKA, KamandaX"/>
         <asp:Button ID="ExecButton" runat="server" Text="Search" OnClick="ExecButton_Click" />
         <br /><br />
+
     </form>
         <asp:Panel ID="ResultPanel" runat="server">
         </asp:Panel>

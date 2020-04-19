@@ -1,16 +1,16 @@
-﻿CSKA Igor Sishkin 1995 1,69 Attacker 11 9
-CSKA Sasha Fedeev 1970 1,77 Attacker 12 11
-CSKA Vladimir Pugachov 1966 1,55 Midfield 13 11
-CSKA Mikail Nurmagomedov 1988 1,65 Midfield 10 4
-CSKA Ruski Pivo 1995 1,87 Defender 9 5
-CSKA Maksim Turev 1995 1,87 Defender 8 5
-KamandaX Fairy Bonke 1916 2,00 Attacker 9 9
-KamandaX Ygnas Shakalas 1969 2,00 Midfield 9 20
-KamandaX TestVard1 TestPavard1 1914 2,00 Midfield 11 14
-KamandaX Matas Petrenas 2001 1,69 Defender 11 8
-KamandaX Mats Petrens 2011 2,69 Defender 11 13
-Barca Jonas Jonaitis 1999 1,85 Attacker 6 9
-Barca Matas Matelis 1999 1,85 Midfield 7 5
-Barca Linus TechTips 1985 1,67 Midfield 5 5
-Barca Charlie White 1985 1,44 Defender 4 4
-Barca Varenis Pavarenis 2000 1,80 Defender 7 7
+﻿CSKA;Igor;Sishkin;1995;1,69;Attacker;11;9
+CSKA;Sasha;Fedeev;1970;1,77;Attacker;12;11
+CSKA;Vladimir;Pugachov;1966;1,55;Midfield;13;11
+CSKA;Mikail;Nurmagomedov;1988;1,65;Midfield;10;4
+CSKA;Ruski;Pivo;1995;1,87;Defender;9;5
+CSKA;Maksim;Turev;1995;1,87;Defender;8;5
+KamandaX;Fairy;Bonke;1916;2,00;Attacker;9;9
+KamandaX;Ygnas;Shakalas;1969;2,00;Midfield;9;20
+KamandaX;TestVard1;TestPavard1;1914;2,00;Midfield;11;14
+KamandaX;Matas;Petrenas;2001;1,69;Defender;11;8
+KamandaX;Mats;Petrens;2011;2,69;Defender;11;13
+Barca;Jonas;Jonaitis;1999;1,85;Attacker;6;9
+Barca;Matas;Matelis;1999;1,85;Midfield;7;5
+Barca;Linus;TechTips;1985;1,67;Midfield;5;5
+Barca;Charlie;White;1985;1,44;Defender;4;4
+Barca;Varenis;Pavarenis;2000;1,80;Defender;7;7

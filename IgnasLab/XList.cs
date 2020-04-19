@@ -1,37 +1,39 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace IgnasLab
 {
-    public class XList
+    public sealed class XList<T> : IEnumerable<T> where T : IEquatable<T>, IComparable<T>
     {
-        private XNode head;
-        private XNode tail;
+        private XNode<T> head { get; set; }
+        private XNode<T> tail { get; set; }
 
-        private XNode iterator;
+        private XNode<T> iterator { get; set; }
         private int count { get; set; }
         public XList()
         {
             this.head = null;
             this.tail = null;
+
         }
-        public XList(Player data)
-        {
-            XNode node = new XNode(data);
-            this.head = node;
-            this.tail = node;
-        }
-        public XList(XNode node)
-        {
-            this.head = node;
-            this.tail = node;
-        }
-        public void Add(Player data)
+        public XList(T data)
+            {
+                XNode<T> node = new XNode<T>(data);
+                this.head = node;
+                this.tail = node;
+            }
+        public XList(XNode<T> node)
+            {
+                this.head = node;
+                this.tail = node;
+            }
+        public void Add(T data)
         {
             if (Contains(data)) return;
-            XNode node = new XNode(data);
+            XNode<T> node = new XNode<T>(data);
             //Empty
             if (this.head == null)
             {
@@ -46,19 +48,15 @@ namespace IgnasLab
             }
             this.count++;
         }
-        public void Add(XNode node)
+        public void Add(XNode<T> node)
         {
             Add(node.Data);
         }
-        public void Begin()
+        public bool Contains(T data)
         {
-            this.iterator = this.head;
-        }
-        public bool Contains(Player player)
-        {
-            for (XNode d = head; d != null; d = d.Link)
+            for (XNode<T> d = head; d != null; d = d.Link)
             {
-                if (d.Data.Equals(player)) return true;
+                if (d.Data.Equals(data)) return true;
             }
             return false;
         }
@@ -67,7 +65,7 @@ namespace IgnasLab
         {
             while (head != null)
             {
-                XNode iterator = head;
+                iterator = head;
                 head = head.Link;
                 iterator = null;
             }
@@ -75,45 +73,48 @@ namespace IgnasLab
             tail = null;
             this.count = 0;
         }
-        public bool Exist() => iterator != null;
-        public Player Get()
+        public int IndexOf(T data)
         {
-            return iterator.Data;
-        }
-        private XNode FindNode(Player player)
-        {
-            for (XNode d = head; d != null; d = d.Link)
+            int index = 0;
+            iterator = head;
+            while(iterator != null)
             {
-                if (d.Data.Equals(player)) return d;
+                if (iterator.Data.Equals(data)) return index;
+                iterator = iterator.Link;
+                index++;
+            }
+            return -1;
+        }
+        private XNode<T> FindNode(T data)
+        {
+            for (XNode<T> d = head; d != null; d = d.Link)
+            {
+                if (d.Data.Equals(data)) return d;
             }
             return null;
         }
-        private XNode FindPriorNode(XNode current)
+        private XNode<T> FindPriorNode(XNode<T> current)
         {
             if (current == this.head) return null;
 
-            XNode result;
+            XNode<T> result;
             for (result = head; result.Link != current; result = result.Link) ;
 
             return result;
 
 
         }
-        public void Next()
+        public void Remove(T data)
         {
-            iterator = iterator.Link;
-        }
-        public void Remove(Player player)
-        {
-            if (!Contains(player)) return;
+            if (!Contains(data)) return;
             if (count == 1)
             {
                 Dispose();
                 count--;
-                Begin();
+                iterator = head;
                 return;
             }
-            var node = FindNode(player);
+            var node = FindNode(data);
             var nodePrior = FindPriorNode(node);
             var nodeFollowing = node?.Link;
 
@@ -132,27 +133,40 @@ namespace IgnasLab
                 tail = nodePrior;
             }
             count--;
-            Begin();
+            iterator = head;
         }
         public void Sort()
         {
-            for (XNode a = head; a?.Link != null; a = a.Link)
+            for (XNode<T> a = head; a?.Link != null; a = a.Link)
             {
-                for (XNode b = a.Link; b != null; b = b.Link)
+                for (XNode<T> b = a.Link; b != null; b = b.Link)
                 {
-                    if (a.Data < b.Data)
+                    if (a.Data.CompareTo(b.Data) == -1)
                     {
                         Swap(a, b);
                     }
                 }
             }
         }
-        private void Swap(XNode a, XNode b)
+        private void Swap(XNode<T> a, XNode<T> b)
         {
-            Player tempData = a.Data;
+            T tempData = a.Data;
             a.Data = b.Data;
             b.Data = tempData;
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            iterator = head;
+            while (iterator != null)
+            {
+                yield return iterator.Data;
+                iterator = iterator.Link;
+            }
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
     }
 }

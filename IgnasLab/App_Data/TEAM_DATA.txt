@@ -1,0 +1,7 @@
+Team data
+
+|            Name | Total |  Wins | Draws |
+-------------------------------------------
+|            CSKA |    10 |     3 |     1 |
+|        KamandaX |    10 |     5 |     3 |
+|           Barca |    10 |     3 |     0 |

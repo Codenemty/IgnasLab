@@ -5,7 +5,7 @@ using System.Web;
 
 namespace IgnasLab
 {
-    public class Team
+    public class Team : IComparable<Team>, IEquatable<Team>
     {
         public string TeamName { get; set; }
         public int TotalGameCount { get; set; }
@@ -19,5 +19,9 @@ namespace IgnasLab
             this.WonGameCount = wonGames;
             this.DrawGameCount = drawGames;
         }
+
+        public int CompareTo(Team other) => (this.WonGameCount > other.WonGameCount) ? 1 : -1;
+
+        public bool Equals(Team other) => (this.WonGameCount == other.WonGameCount && this.TeamName == other.TeamName);
     }
 }

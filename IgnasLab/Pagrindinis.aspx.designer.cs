@@ -33,6 +33,42 @@ namespace IgnasLab
         protected global::System.Web.UI.WebControls.Label TitleName;
 
         /// <summary>
+        /// PlayerUploadLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PlayerUploadLabel;
+
+        /// <summary>
+        /// PlayerDataUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload PlayerDataUpload;
+
+        /// <summary>
+        /// TeamUploadLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TeamUploadLabel;
+
+        /// <summary>
+        /// TeamDataUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload TeamDataUpload;
+
+        /// <summary>
         /// InputLabel control.
         /// </summary>
         /// <remarks>
