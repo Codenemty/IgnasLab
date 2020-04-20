@@ -30,9 +30,9 @@ namespace IgnasLab
                 this.head = node;
                 this.tail = node;
             }
+
         public void Add(T data)
         {
-            if (Contains(data)) return;
             XNode<T> node = new XNode<T>(data);
             //Empty
             if (this.head == null)
@@ -47,10 +47,6 @@ namespace IgnasLab
                 tail = node;
             }
             this.count++;
-        }
-        public void Add(XNode<T> node)
-        {
-            Add(node.Data);
         }
         public bool Contains(T data)
         {
